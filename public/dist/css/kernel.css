@@ -1,0 +1,15 @@
+.holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form {
+    max-width: 600px;
+    width: 100%;
+}
+
+.form > .ui.card {
+    width: 100%;
+}

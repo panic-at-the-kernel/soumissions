@@ -1,0 +1,29 @@
+{
+    "name": "thibaultjunin/boilerplate",
+    "description": "A Simple PHP Boilerplate using Slim",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thibault JUNIN",
+            "email": "spamfree@thibaultjunin.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "slim/slim": "^4.5",
+        "php-di/php-di": "^6.3",
+        "vlucas/phpdotenv": "^5.2",
+        "slim/psr7": "^1.2",
+        "slim/http": "^1.2",
+        "twig/twig": "^3.3",
+        "stantabcorp/i18n": "^1.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2"
+    }
+}

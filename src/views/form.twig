@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ i18n('title') }}</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" async></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+    <link rel="stylesheet" href="/dist/css/kernel.css">
+</head>
+<body>
+<div class="holder">
+    <div class="form">
+        {% if msg == "success" %}
+            <div class="ui positive message">
+                <i class="close icon" onclick="$('.ui.positive.message').hide()"></i>
+                <div class="header">
+                    {{ i18n('thank_you') }}
+                </div>
+                <p>{{ i18n('many_submission') }}</p>
+            </div>
+        {% endif %}
+
+        {% if msg == "error" %}
+            <div class="ui negative message">
+                <i class="close icon" onclick="$('.ui.negative.message').hide()"></i>
+                <div class="header">
+                    {{ i18n('error') }}
+                </div>
+                <p>{{ i18n('try_again') }}</p>
+            </div>
+        {% endif %}
+
+        <div class="ui card">
+            <div class="content">
+                <img class="ui avatar image"
+                     src="https://cdn.discordapp.com/icons/810082514685263883/e308955fa1f4faf0a53ee4966dc6d0af.webp?size=32"> {{ i18n('title') }}
+            </div>
+            <div class="content">
+                <form class="ui form" method="POST" enctype="multipart/form-data">
+                    <h3>{{ i18n('first_step') }}</h3>
+                    <div class="required field">
+                        <label>{{ i18n('name') }}</label>
+                        <div class="two fields">
+                            <div class="field">
+                                <input type="text" name="firstname" placeholder="{{ i18n('firstname') }}" required>
+                            </div>
+                            <div class="field">
+                                <input type="text" name="lastname" placeholder="{{ i18n('lastname') }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="required field">
+                        <label for="category">{{ i18n('category') }}</label>
+                        <select id="category" class="ui fluid dropdown" required name="category">
+                            <option disabled value="">{{ i18n('category') }}</option>
+                            <option>{{ i18n('licence_1') }}</option>
+                            <option>{{ i18n('licence_2') }}</option>
+                            <option>{{ i18n('licence_3') }}</option>
+                            <option>{{ i18n('master_1') }}</option>
+                            <option>{{ i18n('master_2') }}</option>
+                        </select>
+                    </div>
+
+                    <h3>{{ i18n('second_step') }}</h3>
+
+                    <div class="field">
+                        <label>{{ i18n('github_url') }}</label>
+                        <input type="url" name="github" placeholder="{{ i18n('github_url') }}"
+                               pattern="(https?:\/\/github.com\/[a-zA-Z0-9-]*\/[a-zA-Z0-9-]*\/?)">
+                    </div>
+                    <div class="ui horizontal divider">
+                        {{ i18n('either') }}
+                    </div>
+                    <div class="field">
+                        <label>{{ i18n('file') }}</label>
+                        <input type="file" name="file" placeholder="{{ i18n('file') }}"
+                               accept="{{ allowed }}">
+                    </div>
+
+                    <h3>{{ i18n('third_step') }}</h3>
+
+                    <div class="field">
+                        <label for="additional">{{ i18n('additional_info') }}</label>
+                        <textarea id="additional" rows="2" name="additional"></textarea>
+                    </div>
+
+                    <div class="required field">
+                        <div class="ui checkbox">
+                            <input id="rules" type="checkbox" tabindex="0" class="hidden" required name="rules">
+                            <label for="rules"><a
+                                        href="https://github.com/panic-at-the-kernel/discord-bot-challenge/blob/main/R%C3%88GLEMENT.md"
+                                        target="_blank">{{ i18n('rules') }}</a></label>
+                        </div>
+                    </div>
+                    <button class="ui button" type="submit">{{ i18n('send') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{#<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>#}
+</body>
+</html>
